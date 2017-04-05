@@ -15,15 +15,15 @@ namespace EFEncapsulated.Extensions
         /// Configures a many relationship for an entity type by providing the property name explicitly
         /// </summary>
         /// <typeparam name="TEntity">The entity type to whom the collection belongs</typeparam>
-        /// <typeparam name="TCollectionOfEntity">The entity type contained in the private collection</typeparam>
+        /// <typeparam name="TTargetEntity">The entity type contained in the private collection</typeparam>
         /// <param name="configuration">Entity type configuration</param>
         /// <param name="collectionPropertyName">The name of the collection property</param>        
-        public static ManyNavigationPropertyConfiguration<TEntity, TCollectionOfEntity> HasMany<TEntity, TCollectionOfEntity>(
+        public static ManyNavigationPropertyConfiguration<TEntity, TTargetEntity> HasMany<TEntity, TTargetEntity>(
             this EntityTypeConfiguration<TEntity> configuration, string collectionPropertyName)
             where TEntity : class
-            where TCollectionOfEntity : class
+            where TTargetEntity : class
         {
-            var lambdaExpression = (Expression<Func<TEntity, ICollection<TCollectionOfEntity>>>)
+            var lambdaExpression = (Expression<Func<TEntity, ICollection<TTargetEntity>>>)
                 GetPropertyLambdaExpression<TEntity>(collectionPropertyName);
 
             return configuration.HasMany(lambdaExpression);
@@ -33,19 +33,19 @@ namespace EFEncapsulated.Extensions
         /// Configures a many relationship for an entity type by providing the readonly collection property
         /// </summary>
         /// <typeparam name="TEntity"></typeparam>
-        /// <typeparam name="TCollectionOfEntity"></typeparam>
+        /// <typeparam name="TTargetEntity"></typeparam>
         /// <param name="configuration"></param>
         /// <param name="readOnlyCollectionProperty"></param>
         /// <returns></returns>
-        public static ManyNavigationPropertyConfiguration<TEntity, TCollectionOfEntity> HasMany<TEntity, TCollectionOfEntity>(
-            this EntityTypeConfiguration<TEntity> configuration, Expression<Func<TEntity, IEnumerable<TCollectionOfEntity>>> readOnlyCollectionProperty)
+        public static ManyNavigationPropertyConfiguration<TEntity, TTargetEntity> HasMany<TEntity, TTargetEntity>(
+            this EntityTypeConfiguration<TEntity> configuration, Expression<Func<TEntity, IEnumerable<TTargetEntity>>> readOnlyCollectionProperty)
             where TEntity : class
-            where TCollectionOfEntity : class
+            where TTargetEntity : class
         {
             var memberExpression = (MemberExpression)readOnlyCollectionProperty.Body;
             var readOnlyCollectionPropertyName = memberExpression.Member.Name;
 
-            var lambdaExpression = (Expression<Func<TEntity, ICollection<TCollectionOfEntity>>>)
+            var lambdaExpression = (Expression<Func<TEntity, ICollection<TTargetEntity>>>)
                 GetBackingPropertyLambdaExpressionForReadOnlyProperty<TEntity>(readOnlyCollectionPropertyName);
 
             return configuration.HasMany(lambdaExpression);
