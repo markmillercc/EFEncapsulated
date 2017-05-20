@@ -7,10 +7,6 @@ Entity Framework works wonders with anemic models and the use of public POCOs â€
 
 In order to accomplish this, EF needs to be provided access.
 
-The extention methods in this project do just that:
+The <a href="https://github.com/markmillercc/EFEncapsulated/blob/master/EFEncapsulated/Extensions/EntityTypeConfigurationExtensions.cs" target="_blank">extention methods</a> in this project do just that, in a simple and straight-forward way.
 
-<a href="" target="_blank">Name.cs</a>
-
-Check it out in use in the default context:
-
-<a href="" target="_blank">Name.cs</a>
+Check it out in use in the default <a href="https://github.com/markmillercc/EFEncapsulated/blob/master/EFEncapsulated/DAL/Model1Context.cs" target="_blank">db context</a>.
