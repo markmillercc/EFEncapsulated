@@ -7,7 +7,7 @@ Entity Framework works wonders with anemic models and the use of public POCOs â€
 Hereâ€™s a classic example, simplified:
 
 <script src="https://gist.github.com/markmillercc/dd1b2821ef651b088faa19bf150d502e.js"></script>
-<script src="https://gist.github.com/nisrulz/11c0d63428b108f10c83.js"></script>
+{% gist 5555251 %}
 
 Entity Framework has two problems with this.
 
