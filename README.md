@@ -1,12 +1,17 @@
 # EFEncapsulated
 
+This project was created as an addendum to the below article:
+
+## Encapsulated Collections with Entity Framework
+#### Mark Miller
+
 To encapsulate the behavior of an entity means to control access to its parts. Often in EF applications, collection properties that should otherwise be private, are made public to allow for EF mapping. While sometimes acceptable, this is generally the wrong approach. If the model design dictates that a property should be private – it should be private. To alter the attributes or behavior of an entity in order to appease the persistence layer is a violation of the domain's integrity.
 
 Entity Framework works wonders with anemic models and the use of public POCOs – which map seamlessly to your DB and take away all the pain of persistence. This falls short, though, in any moderately complex domain. To promote encapsulation and explicit behavior in the model, we need private attributes.
 
 Here’s a classic example, simplified:
 
-https://gist.github.com/markmillercc/dd1b2821ef651b088faa19bf150d502e"
+https://gist.github.com/markmillercc/dd1b2821ef651b088faa19bf150d502e
 
 Entity Framework has two problems with this.
 
@@ -16,7 +21,7 @@ Second, even as a property, <code>_LineItems</code> is still private; inaccessib
 
 Here’s my solution, a simple extension to <code>EntityTypeConfiguration</code>:
 
-https://gist.github.com/markmillercc/eae60c27ac2975919984e4ed90ae0dee"
+https://gist.github.com/markmillercc/eae60c27ac2975919984e4ed90ae0dee
 
 In use:
 
