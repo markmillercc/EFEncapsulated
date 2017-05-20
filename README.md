@@ -6,8 +6,7 @@ Entity Framework works wonders with anemic models and the use of public POCOs �
 
 Here’s a classic example, simplified:
 
-<script src="https://gist.github.com/markmillercc/dd1b2821ef651b088faa19bf150d502e.js"></script>
-{% gist 5555251 %}
+https://gist.github.com/markmillercc/dd1b2821ef651b088faa19bf150d502e"
 
 Entity Framework has two problems with this.
 
@@ -17,11 +16,11 @@ Second, even as a property, <code>_LineItems</code> is still private; inaccessib
 
 Here’s my solution, a simple extension to <code>EntityTypeConfiguration</code>:
 
-<script src="https://gist.github.com/markmillercc/eae60c27ac2975919984e4ed90ae0dee.js"></script>
+https://gist.github.com/markmillercc/eae60c27ac2975919984e4ed90ae0dee"
 
 In use:
 
-<script src="https://gist.github.com/markmillercc/8e8024661804d53645231047126efa6d.js"></script>
+https://gist.github.com/markmillercc/8e8024661804d53645231047126efa6d
 
 The biggest downfall to this method is that we have to pass in a string - not a deal breaker, but kind of annoying. Jimmy Bogard has <a href="https://lostechies.com/jimmybogard/2014/05/09/missing-ef-feature-workarounds-encapsulated-collections/" target="_blank">another nice workaround</a>. It's a little more complicated, but also a little more robust.
 
