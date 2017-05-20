@@ -5,8 +5,6 @@ To encapsulate the behavior of an entity means to control access to its parts. O
 
 Entity Framework works wonders with anemic models and the use of public POCOs – which map seamlessly to your DB and take away all the pain of persistence. This falls short, though, in any moderately complex domain. To promote encapsulation and explicit behavior in the model, we need private members.
 
-In order to accomplish this, EF needs to be provided access.
+The <a href="https://github.com/markmillercc/EFEncapsulated/blob/master/EFEncapsulated/Extensions/EntityTypeConfigurationExtensions.cs" target="_blank">extention methods</a> in this project give EF access to private collection properties on domain objects.
 
-The <a href="https://github.com/markmillercc/EFEncapsulated/blob/master/EFEncapsulated/Extensions/EntityTypeConfigurationExtensions.cs" target="_blank">extention methods</a> in this project do just that, in a simple and straight-forward way.
-
-Check it out in use in the default <a href="https://github.com/markmillercc/EFEncapsulated/blob/master/EFEncapsulated/DAL/Model1Context.cs" target="_blank">db context</a>.
+Check out some use case examples in the <a href="https://github.com/markmillercc/EFEncapsulated/blob/master/EFEncapsulated/DAL/Model1Context.cs" target="_blank">db context</a> object.
